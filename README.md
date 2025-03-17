@@ -23,7 +23,7 @@ We prefer you to do multiple tasks for increasing your chance of acceptance. For
 
 3. Calculate MSE and MAE for univariate (last feature) and multivariate settings and visualize results. 
 
-4. Ref to this paper for model:  DLinear 
+4. Ref to this paper for model:  [DLinear](https://arxiv.org/abs/2205.13504) 
 
  
 
