@@ -1,7 +1,7 @@
 # QLabIntern2025
 
 Below are the tests we will use to evaluate for the internship position. We have two projects based on Timeseries and Image Restoration. Based on the field of interest, you can choose any one of the tasks. 
-We prefer you to do multiple tasks for acceptance.
+We prefer you to do multiple tasks for increasing your chance of acceptance. For any problem that you select, please perform hyperparameter tuning using Weights and Biases and share the link of the W&B dashboard as a .txt file in addition to the Python files. Please also give your name, email, mobile number, CGPA, year of study, college and branch in this text file. 
 
 # Time Series: 
 
