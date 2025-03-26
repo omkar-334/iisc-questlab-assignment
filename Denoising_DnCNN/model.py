@@ -23,21 +23,19 @@ class DnCNN(nn.Module):
             2D Tuple specifying the size of the kernel window used to compute activations.
         n_channels : int
             Number of image channels that the network processes (1 for grayscale, 3 for RGB)
-        """
 
-        super(DnCNN, self).__init__()
+        """
+        super().__init__()
         layers = [
             nn.Conv2d(in_channels, n_filters, kernel_size=kernel_size, padding=1, bias=False),
             nn.ReLU(inplace=True),
         ]
         for _ in range(depth - 2):
-            layers.extend(
-                [
-                    nn.Conv2d(n_filters, n_filters, kernel_size, padding=1, bias=False),
-                    nn.BatchNorm2d(n_filters, momentum=0.95),
-                    nn.ReLU(inplace=True),
-                ]
-            )
+            layers.extend([
+                nn.Conv2d(n_filters, n_filters, kernel_size, padding=1, bias=False),
+                nn.BatchNorm2d(n_filters, momentum=0.95),
+                nn.ReLU(inplace=True),
+            ])
         layers.append(nn.Conv2d(n_filters, in_channels, kernel_size, padding=1, bias=False))
         self.layers = nn.Sequential(*layers)
         self._initialize_weights()

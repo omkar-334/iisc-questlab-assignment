@@ -12,16 +12,16 @@ from torch.utils.data import DataLoader
 
 
 class SumSquaredError(_Loss):
-    """
+    """Sum Squared Error Loss
     Definition: sum_squared_error = 1/2 * nn.MSELoss(reduction = 'sum')
     The backward is defined as: input-target
     """
 
     def __init__(self, reduction="sum"):
-        super(SumSquaredError, self).__init__(reduction=reduction)
+        super().__init__(reduction=reduction)
 
-    def forward(self, input, target):
-        return torch.nn.functional.mse_loss(input, target, reduction="sum").div_(2)
+    def forward(self, inputs, target):
+        return torch.nn.functional.mse_loss(inputs, target, reduction="sum").div_(2)
 
 
 class Trainer:
@@ -64,14 +64,12 @@ class Trainer:
         print(timestamp, message)
 
         if wandb_log:
-            wandb.log(
-                {
-                    "epoch": epoch,
-                    "train_loss": train_loss,
-                    "val_loss": val_loss,
-                    "time": elapsed_time,
-                }
-            )
+            wandb.log({
+                "epoch": epoch,
+                "train_loss": train_loss,
+                "val_loss": val_loss,
+                "time": elapsed_time,
+            })
             np.savetxt(
                 os.path.join(self.save_dir, "train_result.txt"),
                 np.array([epoch, train_loss, val_loss, elapsed_time]),
@@ -95,7 +93,7 @@ class Trainer:
         start_time = time.time()
         self.model.train()
 
-        for n_count, (batch_x, batch_y) in enumerate(self.train_loader):
+        for _, (batch_x, batch_y) in enumerate(self.train_loader):
             self.optimizer.zero_grad()
             if self.cuda:
                 batch_x, batch_y = batch_x.cuda(), batch_y.cuda()
