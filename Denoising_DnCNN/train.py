@@ -36,6 +36,7 @@ class Trainer:
         self.patience = patience
         self.cuda = torch.cuda.is_available()
         # self.criterion = torch.nn.functional.mse_loss(input, target, size_average=None, reduce=None, reduction="sum").div_(2)
+        self.criterion = SumSquaredError(reduction="sum")
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.lr)
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode="min", factor=0.5, patience=self.patience, verbose=True)
 
@@ -44,6 +45,7 @@ class Trainer:
 
         if self.cuda:
             self.model = self.model.cuda()
+            self.criterion = self.criterion.cuda()
 
         if wandb.run is None:
             wandb.init(

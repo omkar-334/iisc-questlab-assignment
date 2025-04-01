@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 
 class UNet(nn.Module):
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, in_channels=1, out_channels=1):
         super().__init__()
 
         self.down = nn.MaxPool2d(2)
