@@ -13,6 +13,11 @@ Results
 PSNR (Noisy vs Clean): 20.93, SSIM: 0.2544
 PSNR (Denoised vs Clean): 20.83, SSIM: 0.2540
 
+Problem - Denoising using Unet architecture
+W&B Link - https://wandb.ai/firefly334/unet-tuning
+Results
+
+
 Problem - Time series forecasting using DLinear :
 Results
 Univariate - MSE:0.019223235547542572, MAE:0.10737589001655579
