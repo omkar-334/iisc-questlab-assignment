@@ -1,0 +1,19 @@
+Name - Omkar Kabde
+Email - omkarkabde@gmail.com
+Mobile - 8500383520
+CGPA - 8.24
+College - Chaitanya Bharathi Institute of Technology
+Branch - Computer Science
+Year - 3
+
+
+Problem - Denoising using DNCNN architecture
+W&B link - https://wandb.ai/firefly334/dncnn-tuning
+Results
+PSNR (Noisy vs Clean): 20.93, SSIM: 0.2544
+PSNR (Denoised vs Clean): 20.83, SSIM: 0.2540
+
+Problem - Time series forecasting using DLinear :
+Results
+Univariate - MSE:0.019223235547542572, MAE:0.10737589001655579
+Multivariate - MSE:0.017537472769618034, MAE:0.09058502316474915
